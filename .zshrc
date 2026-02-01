@@ -11,19 +11,24 @@ alias cdi=zi
 # standard zsh options
 setopt correct
 setopt share_history
-setopt hist_ignore_dups hist_ignore_space hist_reduce_blanks
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
 setopt inc_append_history
+setopt notify
 
 HISTSIZE=100000
 SAVEHIST=100000
 
+# completion settings: case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # zsh functions
-for file in "$HOME/.config/zsh/functions/"*(.N); do
+for file in "$XDG_CONFIG_HOME/zsh/functions/"*(.N); do
   source "$file"
 done
 
+# init completion
 autoload -Uz compinit && compinit
 
 # starship(should be evaluated here)
