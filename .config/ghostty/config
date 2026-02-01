@@ -1,0 +1,39 @@
+# Font Settings
+font-family = Fira Code
+font-size = 14
+font-thicken = true
+
+# Cursor Settings
+cursor-style = bar
+cursor-style-blink = false
+cursor-click-to-move = true
+
+# Window Settings
+window-padding-x = 8
+window-padding-y = 8
+window-save-state = always
+window-subtitle = working-directory
+
+# Shell Integration
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Clipboard & Links
+clipboard-trim-trailing-spaces = true
+link-url = true
+
+# Quick Terminal (Dropdown)
+quick-terminal-animation-duration = 0.3
+quick-terminal-position = top
+quick-terminal-screen = mouse
+quick-terminal-space-behavior = remain
+keybind = "global:cmd+shift+b=toggle_quick_terminal"
+
+
+# Visual Polish
+minimum-contrast = 1.1
+
+# macOS Settings
+macos-icon = custom-style
+macos-icon-ghost-color = #FF78D8
+macos-icon-screen-color = #FFC4EF
