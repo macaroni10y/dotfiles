@@ -33,3 +33,6 @@ autoload -Uz compinit && compinit
 
 # starship(should be evaluated here)
 eval "$(starship init zsh)"
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
