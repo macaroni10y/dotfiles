@@ -31,6 +31,9 @@ done
 # init completion
 autoload -Uz compinit && compinit
 
+# enable fuzzy finder history
+source <(fzf --zsh)
+
 # starship(should be evaluated here)
 eval "$(starship init zsh)"
 
