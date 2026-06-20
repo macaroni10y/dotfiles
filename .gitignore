@@ -1,5 +1,4 @@
 .env
 *.secret
 .DS_Store
-.config/.android
-.config/zed/prompts
+.config/gh/hosts.yml
