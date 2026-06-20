@@ -24,18 +24,16 @@ SAVEHIST=100000
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # zsh functions
-for file in "$XDG_CONFIG_HOME/zsh/functions/"*(.N); do
+for file in "$XDG_CONFIG_HOME/zsh/functions/"*(-.N); do
   source "$file"
 done
 
 # init completion
 autoload -Uz compinit && compinit
+eval "$(gh completion -s zsh)"
 
 # enable fuzzy finder history
 source <(fzf --zsh)
 
 # starship(should be evaluated here)
 eval "$(starship init zsh)"
-
-# Vite+ bin (https://viteplus.dev)
-. "$HOME/.vite-plus/env"
