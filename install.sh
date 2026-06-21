@@ -57,11 +57,29 @@ install_mise_tools() {
   fi
 }
 
+check_gitconfig_local() {
+  local gitconfig_local="$HOME/.config/git/config.local"
+  if [ ! -e "$gitconfig_local" ]; then
+    log "NOTE: $gitconfig_local not found"
+    cat <<EOF
+  This machine has no git identity yet. Create $gitconfig_local with:
+
+    [user]
+        name = Your Name
+        email = your@email.example
+
+EOF
+  else
+    log "$gitconfig_local already exists, it will be used as-is"
+  fi
+}
+
 main() {
   install_homebrew
   install_brew_bundle
   link_dotfiles
   install_mise_tools
+  check_gitconfig_local
   log "Done. Open a new shell or run 'exec zsh'"
 }
 
