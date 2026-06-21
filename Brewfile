@@ -2,6 +2,8 @@ tap "teamookla/speedtest"
 brew "webp"
 brew "ffmpeg"
 brew "mise"
+brew "shellcheck"
+brew "git-delta"
 
 # Shell Customization
 brew "sheldon"

@@ -1,0 +1,52 @@
+[credential]
+	helper = !gh auth git-credential
+
+[fetch]
+	prune = true
+
+[push]
+	autoSetupRemote = true
+
+[init]
+	defaultBranch = main
+
+[rerere]
+	enabled = true
+
+[merge]
+	conflictstyle = zdiff3
+
+[pull]
+	rebase = true
+
+[diff]
+	algorithm = histogram
+	colorMoved = default
+
+[commit]
+	verbose = true
+
+[help]
+	autocorrect = prompt
+
+[log]
+	date = iso
+	abbrevCommit = true
+	decorate = short
+
+[status]
+	showUntrackedFiles = all
+
+[core]
+	untrackedCache = true
+	pager = delta
+
+[alias]
+	st = status
+	br = branch
+	last = log -1 HEAD
+	unstage = restore --staged
+	lg = log --graph --abbrev-commit --decorate --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset'
+
+[include]
+	path = ~/.config/git/config.local
