@@ -41,6 +41,14 @@
 	untrackedCache = true
 	pager = delta
 
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = true
+
 [alias]
 	st = status
 	br = branch
