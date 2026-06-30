@@ -23,6 +23,7 @@ cask "ghostty"
 cask "google-chrome"
 cask "intellij-idea"
 cask "maccy" # Clipboard manager
+cask "rectangle" # Window manager
 
 # VSCode Settings
 cask "visual-studio-code"
