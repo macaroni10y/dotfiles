@@ -1,5 +1,4 @@
 .env
 *.secret
-.DS_Store
 .config/gh/hosts.yml
 .config/git/config.local

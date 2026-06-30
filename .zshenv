@@ -7,8 +7,5 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # Standard PATH additions
 export PATH="$HOME/.local/bin:$PATH"
 
-# Homebrew environment
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # Vite+ bin (https://viteplus.dev)
 [ -f "$HOME/.vite-plus/env" ] && . "$HOME/.vite-plus/env"

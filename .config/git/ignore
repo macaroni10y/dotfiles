@@ -1,1 +1,7 @@
+.DS_Store
+._*
+
+.idea/
+.zed/
+
 **/.claude/settings.local.json

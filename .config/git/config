@@ -52,9 +52,13 @@
 [alias]
 	st = status
 	br = branch
-	last = log -1 HEAD
+	last = lg -1
 	unstage = restore --staged
 	lg = log --graph --abbrev-commit --decorate --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset'
 
 [include]
 	path = ~/.config/git/config.local
+
+
+[branch]
+	sort = -committerdate
