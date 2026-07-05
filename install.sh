@@ -5,6 +5,7 @@
 #   2. Install packages from Brewfile
 #   3. Symlink every file tracked by this repo into $HOME
 #   4. Install dev tool versions pinned in .config/mise/config.toml
+#   5. Install Claude Code via the official native installer if missing
 #
 # Usage: ./install.sh
 
@@ -54,6 +55,15 @@ link_dotfiles() {
   done < <(git -C "$REPO_DIR" ls-files -z)
 }
 
+install_claude_code() {
+  if command -v claude >/dev/null 2>&1; then
+    log "Claude Code already installed, skipping"
+    return
+  fi
+  log "Installing Claude Code (native installer)"
+  curl -fsSL https://claude.ai/install.sh | bash
+}
+
 install_mise_tools() {
   if command -v mise >/dev/null 2>&1; then
     log "Installing tools with mise"
@@ -82,6 +92,7 @@ main() {
   install_homebrew
   install_brew_bundle
   link_dotfiles
+  install_claude_code
   install_mise_tools
   check_gitconfig_local
   log "Done. Open a new shell or run 'exec zsh'"
