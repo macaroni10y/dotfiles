@@ -32,7 +32,7 @@ install_brew_bundle() {
 
 link_dotfiles() {
   log "Symlinking dotfiles into \$HOME"
-  local excludes=("README.md" "install.sh")
+  local excludes=("README.md" "install.sh" ".gitignore" )
   while IFS= read -r -d '' rel_path; do
     for excl in "${excludes[@]}"; do
       [[ "$rel_path" == "$excl" ]] && continue 2

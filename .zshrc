@@ -30,7 +30,7 @@ done
 
 # init completion
 autoload -Uz compinit && compinit
-eval "$(gh completion -s zsh)"
+eval "$(pnpm completion zsh)"
 
 # enable fuzzy finder history
 source <(fzf --zsh)

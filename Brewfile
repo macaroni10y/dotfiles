@@ -1,9 +1,21 @@
 tap "teamookla/speedtest"
+tap "homebrew/autoupdate" # after `brew bundle`, run: brew autoupdate start --upgrade --cleanup --ac-only --notify-on-error
 brew "webp"
 brew "ffmpeg"
 brew "mise"
 brew "shellcheck"
 brew "git-delta"
+
+# Standalone CLIs
+brew "awscli"
+brew "eza"
+brew "fzf"
+brew "gh"
+brew "jq"
+brew "jwt-cli"
+brew "ripgrep"
+brew "uv"
+cask "codex" # OpenAI Codex CLI
 
 # Shell Customization
 brew "sheldon"
