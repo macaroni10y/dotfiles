@@ -4,9 +4,10 @@ My personal dotfiles for macOS and zsh.
 
 ## Structure
 
-### XDG-ish style
+### XDG style
 
-Almost all files are under `~/.config` except for the shell config files, several config files already existing in `$HOME`(which aren't tracked by git), and the `Brewfile` and `install.sh` script.
+Everything tracked here lives under `~/.config`, including the zsh config files
+(`Brewfile` and `install.sh` stay at the repo root and are never symlinked).
 
 ### Auth isolation
 
@@ -29,8 +30,13 @@ HTTPS git auth goes through `gh auth git-credential`, so there's nothing else to
 
 The script does the following:
 
-1. Install Homebrew if it's not already there
-2. Run `brew bundle` to install packages, casks, and VS Code extensions from `Brewfile`
-3. Symlink every file tracked by this repo into `$HOME` (existing files get moved to `~/.dotfiles_backup/` first)
-4. Run `mise install` to pull in the tool versions pinned in `.config/mise/config.toml`
-5. Remind you to create `~/.config/git/config.local` if it's missing
+1. Set `ZDOTDIR` in `/etc/zshenv` — asks for sudo first thing, so the prompt
+   doesn't interrupt the long `brew bundle` below (skipped if already set)
+2. Install Homebrew if it's not already there
+3. Run `brew bundle` to install packages, casks, and VS Code extensions from `Brewfile`
+4. Symlink every file tracked by this repo into `$HOME` (existing files get moved to `~/.dotfiles_backup/` first), then drop the pre-`ZDOTDIR` symlinks
+5. Run `mise install` to pull in the tool versions pinned in `.config/mise/config.toml`
+6. Remind you to create `~/.config/git/config.local` if it's missing
+
+Run it from a real terminal: `sudo` reads the password from the terminal device,
+so piping the script through something without a TTY makes step 1 fail.

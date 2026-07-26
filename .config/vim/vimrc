@@ -1,0 +1,7 @@
+" Loaded via $VIMINIT (set in .zshenv) so that vim keeps no state in $HOME.
+set viminfofile=$XDG_STATE_HOME/vim/viminfo
+set runtimepath^=$XDG_CONFIG_HOME/vim
+set runtimepath+=$XDG_DATA_HOME/vim
+set directory=$XDG_STATE_HOME/vim/swap//
+set backupdir=$XDG_STATE_HOME/vim/backup//
+set undodir=$XDG_STATE_HOME/vim/undo//

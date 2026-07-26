@@ -20,8 +20,13 @@ setopt notify
 HISTSIZE=100000
 SAVEHIST=100000
 
+# zsh keeps history/completion state out of $HOME (these dirs must exist first)
+mkdir -p "$XDG_STATE_HOME/zsh" "$XDG_CACHE_HOME/zsh"
+HISTFILE="$XDG_STATE_HOME/zsh/history"
+
 # completion settings: case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 
 # zsh functions
 for file in "$XDG_CONFIG_HOME/zsh/functions/"*(-.N); do
@@ -29,7 +34,7 @@ for file in "$XDG_CONFIG_HOME/zsh/functions/"*(-.N); do
 done
 
 # init completion
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 eval "$(pnpm completion zsh)"
 
 # enable fuzzy finder history
