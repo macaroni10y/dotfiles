@@ -7,10 +7,7 @@ eval "$(zoxide init zsh)"
 alias grep='grep --color=auto'
 alias gs='git status'
 alias cdi=zi
-# Replace the shell rather than re-sourcing .zshrc: the eval'd inits below
-# (mise, sheldon, zoxide, starship, fzf) duplicate PATH entries and hooks when
-# run twice.
-alias reload='exec zsh'
+alias reload='exec zsh' # Replace the shell rather than re-sourcing .zshrc
 
 # standard zsh options
 setopt correct
@@ -19,6 +16,7 @@ setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt inc_append_history
+setopt extended_history
 setopt notify
 
 HISTSIZE=100000
@@ -39,11 +37,7 @@ done
 
 # init completion
 autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
-# Offer dotfiles without typing the leading dot -- $ZDOTDIR holds nothing else.
-# Must come after compinit, which assigns _comp_options wholesale. Scoped to the
-# completion system on purpose: a global `setopt globdots` would make `rm *`
-# match .ssh and friends too.
-_comp_options+=(globdots)
+_comp_options+=(globdots) # Offer dotfiles without typing the leading dot
 eval "$(pnpm completion zsh)"
 
 # enable fuzzy finder history

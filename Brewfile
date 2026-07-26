@@ -1,5 +1,5 @@
 tap "teamookla/speedtest"
-tap "homebrew/autoupdate" # after `brew bundle`, run: brew autoupdate start --upgrade --cleanup --ac-only --notify-on-error
+
 brew "webp"
 brew "ffmpeg"
 brew "mise"
