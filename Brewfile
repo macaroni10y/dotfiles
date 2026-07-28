@@ -10,11 +10,16 @@ brew "git-delta"
 brew "awscli"
 brew "eza"
 brew "fzf"
+brew "fd"
+brew "bat"
+brew "ghq"
 brew "gh"
 brew "jq"
 brew "jwt-cli"
 brew "ripgrep"
 brew "uv"
+brew "httpie"
+brew "witr"
 cask "codex" # OpenAI Codex CLI
 
 # Shell Customization

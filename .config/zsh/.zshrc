@@ -39,6 +39,8 @@ done
 autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 _comp_options+=(globdots) # Offer dotfiles without typing the leading dot
 eval "$(pnpm completion zsh)"
+eval "$(witr completion zsh)"
+
 
 # enable fuzzy finder history
 source <(fzf --zsh)
