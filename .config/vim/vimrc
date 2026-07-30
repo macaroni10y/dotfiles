@@ -1,7 +1,21 @@
-" Loaded via $VIMINIT (set in .zshenv) so that vim keeps no state in $HOME.
-set viminfofile=$XDG_STATE_HOME/vim/viminfo
-set runtimepath^=$XDG_CONFIG_HOME/vim
-set runtimepath+=$XDG_DATA_HOME/vim
-set directory=$XDG_STATE_HOME/vim/swap//
-set backupdir=$XDG_STATE_HOME/vim/backup//
-set undodir=$XDG_STATE_HOME/vim/undo//
+" Found natively as $XDG_CONFIG_HOME/vim/vimrc (vim >= 9.1.0327), which also
+" puts this directory on 'runtimepath' and 'packpath' and implies nocompatible.
+" Only the state files still default into $HOME, so redirect them here.
+let s:state = (empty($XDG_STATE_HOME) ? expand('~/.local/state') : $XDG_STATE_HOME) . '/vim'
+
+" Vim never creates these itself; without them swap/backup/undo silently fail
+" (E303: unable to create swap file, recovery impossible).
+for s:dir in [s:state, s:state . '/swap', s:state . '/backup', s:state . '/undo']
+  if !isdirectory(s:dir)
+    call mkdir(s:dir, 'p', 0700)
+  endif
+endfor
+
+let &viminfofile = s:state . '/viminfo'
+" Trailing // encodes the full path into the file name, so files with the same
+" basename in different directories do not collide.
+let &directory = s:state . '/swap//'
+let &backupdir = s:state . '/backup//'
+let &undodir = s:state . '/undo//'
+
+unlet s:state s:dir
